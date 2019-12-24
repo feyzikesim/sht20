@@ -1,7 +1,7 @@
 import re
 import os
 import setuptools
-import sps30
+import sht20
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
