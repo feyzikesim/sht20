@@ -1,0 +1,5 @@
+/sht20.egg-info/
+/dist/
+build/
+/__pycache__/
+/sht20/__pycache__/
