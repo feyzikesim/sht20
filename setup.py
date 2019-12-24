@@ -27,10 +27,10 @@ setuptools.setup(
     scripts=['bin/run-sht20'],
     author="Feyzi Kesim",
     author_email="feyzikesim@gmail.com",
-    description="Python3 I2C Driver & Application for SPS30 PM Sensor",
+    description="Python3 I2C Driver & Application for SHT20 Temperature & Humidity Sensor",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/feyzikesim/sps30",
+    url="https://github.com/feyzikesim/sht20",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
