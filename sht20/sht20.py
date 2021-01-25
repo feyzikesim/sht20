@@ -63,7 +63,7 @@ class SHT20():
         self.bus.write_byte(self.SHT20_ADDR, self.SOFT_RESET)
         sleep(0.2)
 
-        userReg =  self.bus.read_byte_data(self.SHT20_ADDR, self.WRITE_USER_REG)
+        userReg =  self.bus.read_byte_data(self.SHT20_ADDR, self.READ_USER_REG)
         userReg &= 0x38 # we must not change "Reserved bits"
         userReg |= inits + self.DISABLE_OTP_RELOAD # add our settings + always disable OTP
 
