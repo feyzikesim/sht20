@@ -61,8 +61,13 @@ class SHT20():
 
     def sht20_init(self, inits):
         self.bus.write_byte(self.SHT20_ADDR, self.SOFT_RESET)
-        sleep(1)
-        self.bus.write_byte_data(self.SHT20_ADDR, self.WRITE_USER_REG, inits | self.DISABLE_OTP_RELOAD)
+        sleep(0.2)
+
+        userReg =  self.bus.read_byte_data(self.SHT20_ADDR, self.READ_USER_REG)
+        userReg &= 0x38 # we must not change "Reserved bits"
+        userReg |= inits + self.DISABLE_OTP_RELOAD # add our settings + always disable OTP
+
+        self.bus.write_byte_data(self.SHT20_ADDR, self.WRITE_USER_REG, userReg)
 
     def start_temp_measurement(self):
         self.bus.write_byte(self.SHT20_ADDR, self.TRIG_TEMP_NOHOLD)
